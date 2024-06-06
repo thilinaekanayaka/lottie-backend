@@ -15,7 +15,7 @@ const main = async () => {
     }
   
     type Mutation {
-      uploadAnimation(name: String!): Animation
+      uploadAnimation(name: String!, data: String!): Animation
     }
   `;
 
@@ -23,18 +23,18 @@ const main = async () => {
   const resolvers = {
     Query: {
       animations: async () => {
-        // Fetch animations from your database
+        // Fetching animations from the database
         // Placeholder for now
         return [
-          { id: '1', name: 'Animation 1', url: '/animations/animation1.json', metadata: '{}' },
+          { id: '1', name: 'Animation 1', data: 'qwerqwerwqerwqer', metadata: '{}' },
         ];
       },
     },
     Mutation: {
-      uploadAnimation: async (parent, { name }) => {
-        // Handle file upload and save animation to your database
+      uploadAnimation: async (parent, { name, data }) => {
+        // Handling file upload and saving animation to the database
         // Placeholder for now
-        const animation = { id: '2', name, url: '/animations/new-animation.json', metadata: '{}' };
+        const animation = { id: '2', name, data: 'qewrwqerwqerwqre', metadata: '{}' };
         return animation;
       },
     },
